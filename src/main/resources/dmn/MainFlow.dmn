@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_3CD6446A-846F-476A-9AC5-19195586FA07" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_9621B9F9-E4D6-4F76-99DA-D1DF3C8892AB" name="MainFlow" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_3CD6446A-846F-476A-9AC5-19195586FA07">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_A49E94B5-E8DB-4E41-A572-264EFA53DE0B" name="CreditRequest" isCollection="false">
+    <dmn:itemComponent id="_066C88AB-1C5C-4A6B-8D14-C279BEBCAD5E" name="ProductCategory" isCollection="false">
+      <dmn:itemComponent id="_A14F5CB9-AEF9-4FF4-AE6B-52A47E009372" name="ProductCode" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+      </dmn:itemComponent>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_8D7A22EB-1826-4B8B-907E-908A827772A7" name="RequestedProduct" isCollection="false">
+    <dmn:itemComponent id="_EC1E6590-85C5-4F06-A2EC-3B048CD3E451" name="productCode" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D758B262-8655-4FC6-B154-6A910F252DC7" name="productName" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_345A767D-8700-4064-8D8C-3B5E604EAC1F" name="productType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_868ACF3A-DD50-411E-89EF-2369C5B56939" name="requestedDebitCard" isCollection="false">
+      <dmn:typeRef>requestedDebitCard</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2CACC7E7-167A-4473-89EE-BF9743E62EC7" name="requestedCashLoan" isCollection="false">
+      <dmn:typeRef>requestedCashLoan</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_31994081-D8B5-453A-A484-3B8798A65739" name="requestedCreditCard" isCollection="false">
+      <dmn:typeRef>requestedCreditCard</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_19AF93C2-DE32-453F-B940-35EE6434D1FF" name="requestedCashLoan" isCollection="false">
+    <dmn:itemComponent id="_EC36FDDD-281C-4267-B555-2AB00B4341CA" name="Currency" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E1D24029-DD36-4AE9-BDF2-DE16AB3AB143" name="ReqTerm" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4FD705A3-A56A-45F8-8679-B3530BA7EDF3" name="ReqSum" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_AF828AFD-8488-4B76-989F-360A04A96D69" name="requestedCreditCard" isCollection="false">
+    <dmn:itemComponent id="_3923C319-5FF5-4FAF-8914-8963DF7DA5F6" name="Currency" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_83976A24-E6C6-496D-A83A-8F5A482766E9" name="ReqTerm" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F49C5E0B-1AC2-413B-8800-DBC76BC7A301" name="ReqSum" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_1372B3B8-6067-4D52-B8FF-470716DB320A" name="requestedDebitCard" isCollection="false">
+    <dmn:itemComponent id="_C3A1BD0E-E5FB-40B7-8806-85066C97D7E9" name="Currency" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_83FF41B8-8CE3-4ED5-AB39-F9054641E594" name="ReqTerm" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_82837715-95D7-4F6A-8DC0-B25D1B193D34" name="ReqSum" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_8150D639-6E92-436E-9F97-5B54E4487B37" name="Address" isCollection="false">
+    <dmn:itemComponent id="_172BDEB1-CC2C-482B-94E7-83D50B08CB42" name="fullAddress" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_20B3C688-2318-40D4-92F7-3EE80B20A7E5" name="apartment" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_26A85B47-2AF9-4844-B1C1-3E88BFE5A294" name="house" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D724ECE5-DC76-4458-ADAC-A75C417CAC38" name="street" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C8899108-5991-4CD8-94CA-20B93FA62292" name="streetType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D185BA99-FE8B-4E6F-83DE-87D31076725A" name="cityType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0F271033-CFA2-4453-99DC-18F703D3B1D2" name="city" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_056AF272-68CE-47F6-99A8-30CE398738AB" name="regionCode" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_70627F4A-1B2F-41D8-A037-220AB497DB9A" name="region" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_839EC08A-B5F2-485B-BCB2-7BD774C81137" name="postIndex" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1C04E9B8-D639-42E0-97F5-7925892DC7C8" name="country" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DFF3D813-BFFF-4E4C-B0C2-AF19FFC6C83B" name="inputType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7D7F1B01-784C-4ABC-8F3F-E2F27E9419B1" name="addressType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_18B1B86E-C13D-486F-B793-A41CE7C36746" name="Addresses" isCollection="false">
+    <dmn:itemComponent id="_B447759F-ABA3-4DA6-AA39-FD5509F1C6B6" name="registrationType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_122DAA23-2B15-4773-AB73-ED622B21F33A" name="registrationDate" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_FF687215-F413-4F56-BC8A-556A34BA00DB" name="distanceLiveWork" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_58BB8306-BC8A-4E98-B107-88D9836CE920" name="Address" isCollection="true">
+      <dmn:typeRef>Address</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_E0E21F3D-7E43-4344-A433-DF6B8D25B44E" name="Doc" isCollection="false">
+    <dmn:itemComponent id="_DC21BDA0-C2FD-452A-836E-199297D95DA5" name="expiredFlag" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6D039768-F25E-420A-90C6-97CD25048C61" name="issueCode" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E5438D3E-BA89-451D-9E28-EA4A0D4D5DC3" name="issuePlace" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B31FC4D6-9456-45EC-9C63-4C565B10C8F8" name="issueDate" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_EA29B764-D15C-40D7-AF4A-E4272599A138" name="issuedBy" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0035E18B-E2F4-473F-981C-2DD8AAD27DED" name="numberr" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_760A886D-2ECE-4440-98C0-D229FD86941C" name="series" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_AF9F1715-7417-4F49-A697-BAE0E04DB551" name="docType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7BC71522-DF2A-4963-A097-542831F2D36D" name="Documents" isCollection="false">
+    <dmn:itemComponent id="_190635FB-EE59-4874-B385-B5812FB10304" name="Doc" isCollection="true">
+      <dmn:typeRef>Doc</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_8578B459-F21A-435C-8606-B4DE5C52B375" name="Phone" isCollection="false">
+    <dmn:itemComponent id="_CEE4DEEA-FA79-48A2-8104-B0A1ABBB1275" name="phoneType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_FB15BC09-F5A1-4E5D-ACCA-8AF7E5702C08" name="phoneNumber" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_E2FD8746-3977-4E9B-A421-D003DD4B886A" name="Phones" isCollection="false">
+    <dmn:itemComponent id="_E257DBD9-483E-4294-9782-09BD4702D694" name="codeWorkPhone" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CB04A122-FC11-45F8-B8EC-F0D7EEF36D8E" name="Phone" isCollection="true">
+      <dmn:typeRef>Phone</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_2D7C8884-C93C-4773-8391-CE58CAC1A532" name="ContactPerson" isCollection="false">
+    <dmn:itemComponent id="_B1B25E31-6F9E-48CB-90A7-35EC67243F57" name="relationshion" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BC4FFA94-68E2-4274-826D-87D445D9A2B2" name="phoneNumber" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_38AF8FFE-9448-47D1-A812-1315BD247A3B" name="FIO" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_54BB4292-0F73-4B62-8E75-43CB719BA687" name="Employment" isCollection="false">
+    <dmn:itemComponent id="_A8F30AA7-3DB4-49FC-92A3-EE2EA1E13AB9" name="Address" isCollection="false">
+      <dmn:typeRef>Address</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3234F185-4CE5-43F6-B268-98922A0B9DA5" name="currentJobExpirience" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3792C227-8FC7-4EB4-AD3F-EF5DC544DAEC" name="currentEmployerFlag" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1F66EC9E-6DE1-48CB-B738-50517EB4118B" name="occupationType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1C39A3C5-4391-4AEE-95C7-C61C157ED9F8" name="companyTotalStaff" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1858DEB3-0FC5-4EEE-B322-7EE9338DDE2D" name="industrySector" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_026A2CA7-BED0-4050-8FA2-925F1A378150" name="actualPosition" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D6D858F8-D800-4AE3-BE37-0C23D6FE841D" name="webAddress" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3AB09307-F5AA-4FDA-A4FD-4866AA06F082" name="companyName" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7876B3D2-0039-43F6-AC4D-8169F39672E1" name="contractType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_1D6865D6-059D-4AF9-BF6B-BFC63CB3D934" name="Employments" isCollection="false">
+    <dmn:itemComponent id="_3359458F-51F8-43A4-B587-D25C73BBCCB2" name="totalJobExpirience" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F53773B4-3BDF-45E9-951E-4AB37D27E38B" name="Employment" isCollection="true">
+      <dmn:typeRef>Employment</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_CE5A0ACA-F906-4060-B486-2C529A58165A" name="Income" isCollection="false">
+    <dmn:itemComponent id="_B79871F4-C4BB-4DCD-B7E6-75A898283295" name="incomeConfirmed" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4BA156DB-EE06-4052-AF68-F09A7030DA79" name="incomeAmount" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5423098E-D0EA-450D-8D24-1D5F94623A85" name="incomeType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_CC7B8F7A-C503-4385-A0F2-3BF6C96DE381" name="Incomes" isCollection="false">
+    <dmn:itemComponent id="_0F8C0DC4-97CC-48AA-A468-3D469D4F6D52" name="Income" isCollection="true">
+      <dmn:typeRef>Income</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D5EA5F4D-7A53-4CC4-A544-F6C5288404DA" name="Expense" isCollection="false">
+    <dmn:itemComponent id="_D02C4F47-71C6-49F7-8935-1897BB49E018" name="expenseConfirmed" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2A6E49C0-9D35-4026-8572-2C263E327A78" name="expenseAmount" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2B06019A-9DCB-4A8C-BCF7-24FE0B0C8906" name="expenseType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_46077525-F247-4D12-81A1-E60F1D6EDC48" name="Expenses" isCollection="false">
+    <dmn:itemComponent id="_B9F601F4-727E-49D1-9B9C-2180B25E1DBA" name="Expense" isCollection="true">
+      <dmn:typeRef>Expense</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_B25FAE8F-C0BD-4F21-8E1F-FE32AAC8C4B3" name="Financial" isCollection="false">
+    <dmn:itemComponent id="_74C2FA79-C1CE-4C93-B09D-ABA275C8A209" name="Incomes" isCollection="false">
+      <dmn:typeRef>Incomes</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1E231906-CFEB-424B-9FB6-83FDC268E496" name="Expenses" isCollection="false">
+      <dmn:typeRef>Expenses</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_2330C78F-A022-409F-9F17-4F23ED816735" name="ExistingApplication" isCollection="false">
+    <dmn:itemComponent id="_FF5B97B2-DE82-409F-80C7-49A594AAD5C2" name="creditSum" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0F222A71-0262-40FE-AE86-CC5EF8D72A9E" name="status" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C1CD5412-AC36-4B14-89D8-F1054782FB16" name="appDecision" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_03CDEB61-54DF-4DFD-AC0B-8DC732BF58DC" name="productCode" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_AFC01D27-D965-4E62-AB86-AE846DD942D3" name="startDate" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0C8B74D4-4184-4FE3-B873-C9EA9D6CB2A5" name="clientID" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E2B8E861-0A21-4F33-94DE-23078A9199D5" name="requestID" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_C007ACE9-4A58-45AB-8FB9-3E0C7F01EECB" name="ExistingApplications" isCollection="false">
+    <dmn:itemComponent id="_7679D830-7820-4C3F-8D48-C9976D48E158" name="ExistingApplication" isCollection="true">
+      <dmn:typeRef>ExistingApplication</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_F06BC01A-CB9E-4EB0-81D5-8DEB325D1AE4" name="BlackLists" isCollection="false">
+    <dmn:itemComponent id="_642AF7B3-D6D8-49E2-BEFF-B285648B81E5" name="presenceStopList" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_8672BD71-49A5-4FEB-B7BF-10B11F46AB44" name="presenceTerrorList" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B07B7A48-16AE-40F4-BB63-33D7E390703A" name="presenceBadPassport" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B46D64D9-77A5-4DA2-8C85-C3970374FBFB" name="apartmentError" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C01F5BCE-527D-4A04-A665-B645B6643D6B" name="cityError" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_28526A02-909B-4E13-ADDB-E5E58EB332D6" name="streetError" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7DED536C-46E7-47DA-B01A-371C2BD961F0" name="Applicant" isCollection="false">
+    <dmn:itemComponent id="_876366BE-B775-4881-9303-0C536F1ECDB0" name="email" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D665310C-C4F5-4948-9EF4-D3F7EBB1AFDB" name="isPDLorRelative" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_122C4E97-A840-472F-BC25-F938820EF471" name="approveData" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E330BA9E-4FBF-42EF-BE6E-7A83A4E5D759" name="agreeRight" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4E08B899-38A6-41F9-8542-93C4AFDF4FCA" name="agreePersonalData" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C7673E6B-54EB-4D9D-A397-93B2A075F81F" name="agreeBKI" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_073AFF7C-61B4-4A45-9889-80DF350DDEAD" name="age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_90765442-3A39-465D-BBB8-9237A8595E18" name="birthDate" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9A602874-9122-4BCC-94ED-7F04E14474DE" name="citizenship" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C264A37F-BC30-4F9C-871B-1D131F13936F" name="gender" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0B6842F7-E7EF-4016-8D96-E67A5163F6BD" name="prevLastName" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_80CAFE12-73A9-4021-AE27-426235EA9D83" name="lastNameEngl" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1703D09D-A173-4749-B3D6-C3080B610811" name="firstNameEngl" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E23DD008-FBFB-44FB-BA57-8F0C57469186" name="patronymic" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_641F8D0F-84BD-4488-B72C-D4096E23B43B" name="lastName" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7731137E-2782-4628-A0AD-2E5482839296" name="firstName" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2BC1ADC3-C1EC-4718-AF6D-D0ED9650A1CC" name="clientID" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_780FD893-735F-4816-830F-4F24C6C9D0C5" name="clientType" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_04C1DC61-5D77-4579-BE24-5B3319B90660" name="BlackLists" isCollection="false">
+      <dmn:typeRef>BlackLists</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3B3E7629-1037-4744-A9A2-36E71E338A2B" name="ExistingApplications" isCollection="false">
+      <dmn:typeRef>ExistingApplications</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D1001488-A682-42C0-A0FC-F59FF87B84C0" name="Financial" isCollection="false">
+      <dmn:typeRef>Financial</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_8D2FD13B-07AB-4D40-8F6E-6954458E8021" name="Employments" isCollection="false">
+      <dmn:typeRef>Employments</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_989F595A-6DD6-4E34-B25C-32E3F2F68798" name="ContactPerson" isCollection="false">
+      <dmn:typeRef>ContactPerson</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E3C23621-C0C9-4109-B381-8B2DFCD4DC3B" name="Phones" isCollection="false">
+      <dmn:typeRef>Phones</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_337A84C3-2665-4A36-A92A-8C1AC5A1B0BE" name="Documents" isCollection="false">
+      <dmn:typeRef>Documents</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BD8B6A08-0BAC-4E4A-AEEA-F049E88B91EE" name="Addresses" isCollection="false">
+      <dmn:typeRef>Addresses</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_B4075CD3-2008-45A8-931D-6FCD2014A6AB" name="root" isCollection="false">
+    <dmn:itemComponent id="_F7289EA3-916B-4285-9B52-FE3B84699D69" name="RequestedProduct" isCollection="false">
+      <dmn:typeRef>RequestedProduct</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BC2928B1-8A13-49CC-BD49-F8FA9A315FF9" name="Applicant" isCollection="false">
+      <dmn:typeRef>Applicant</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_9104CAFE-B8BB-4CAC-ABA4-FA1B736D25DF" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension/>
+      </di:extension>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
